@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playground</title>
+    <link rel="stylesheet" href='css/main.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<section id='CONNECT-FOUR' title='CONNECT FOUR'class='active-section'>
+    <div id="game-restart">
+        <div id="restart-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#fefefe">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </div>
+    </div>
+    <div class="connectFour">
+        
+        <div id="game-setup">
+            <h1>Connect four</h1>
+            <form id='initForm'>
+                <div class="board-width">
+                    <h3>board width</h3>
+                    <input type='number' value='7' id='w' name='w'>
+                </div>
+                <div class="board-height">
+                    <h3>board height</h3>
+                    <input type='number' value='6' id='h' name='h'>
+                </div>
+                <div>
+                    <h3>number of players</h3>
+                    <input type='number' value='2' id='p' name='p'>
+                </div>
+                <div class="controls">
+                    <button id='start-btn'>start</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id='id' class="connect-board">
+            <div id="connect-topRow">
+                <div id="curPlayer"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+        crossorigin="anonymous"></script>
+    <script src='js/main.js'></script>
+</body>
+</html>

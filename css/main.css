@@ -1,0 +1,229 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+}
+
+.img-holder img {
+  width: 100%;
+}
+
+#img-diagonal-bg {
+  padding: 50vh 0;
+}
+
+#img-diagonal-bg .container {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#img-diagonal-bg .img-holder {
+  max-width: 40vw;
+  position: relative;
+}
+
+#img-diagonal-bg .img-holder img.absolute {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 1;
+}
+
+#img-diagonal-bg .img-holder .img-bg {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 20px, #c457e6 20px, #c457e6 40px);
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  opacity: 1;
+  z-index: 1;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+body {
+  background-color: #253031;
+}
+
+section {
+  width: 100vw;
+}
+
+#game-restart {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  place-items: center;
+  z-index: 100;
+}
+
+#game-restart #restart-btn {
+  width: 150px;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.connectFour {
+  width: 100%;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  position: relative;
+}
+
+.connectFour #game-setup {
+  position: absolute;
+  place-self: center;
+  max-width: 40vw;
+  z-index: 10;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: 'Roboto';
+  color: #bebebe;
+  text-transform: lowercase;
+}
+
+.connectFour #game-setup h1 {
+  position: absolute;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  text-transform: uppercase;
+}
+
+.connectFour #game-setup #initForm {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  row-gap: 1em;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+}
+
+.connectFour #game-setup #initForm .controls {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column-span: 3;
+      grid-column-end: span 3;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.connectFour #game-setup #initForm .controls button {
+  padding: .5em;
+}
+
+.connectFour #game-setup #initForm input {
+  outline: none;
+  width: 100%;
+  padding: 1em;
+  height: 3em;
+}
+
+.connectFour #game-setup #initForm input, .connectFour #game-setup #initForm button {
+  border: none;
+  border-radius: 2px;
+  background: #354446b4;
+  font-family: 'Roboto';
+  color: #bebebe;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.connectFour #connect-topRow {
+  background-color: #354446;
+  border-radius: 100px;
+  height: 120px;
+  display: -ms-grid;
+  display: grid;
+  position: relative;
+  width: 100%;
+}
+
+.connectFour #connect-topRow #curPlayer {
+  text-align: center;
+  place-self: center;
+  font-size: 2em;
+  color: #eeeeee;
+  font-family: 'Roboto', serif;
+}
+
+.connectFour #connect-topRow #curTurn {
+  position: absolute;
+  background-color: brown;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  -ms-grid-column-span: 1;
+      grid-column-end: span 1;
+  z-index: 2;
+}
+
+.connectFour .connect-board {
+  background-color: #354446;
+  -webkit-mask-repeat: no-repeat, repeat;
+          mask-repeat: no-repeat, repeat;
+  -webkit-mask-position: 0 0px;
+          mask-position: 0 0px;
+  -webkit-mask-image: url(../assets/img/rect1.svg), url(../assets/img/circle.svg);
+          mask-image: url(../assets/img/rect1.svg), url(../assets/img/circle.svg);
+  -webkit-mask-clip: border-box;
+          mask-clip: border-box;
+  overflow: visible;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[7];
+      grid-template-rows: repeat(7, 1fr);
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  position: relative;
+}
+
+.connectFour .connect-cell {
+  border: 10px solid rgba(0, 0, 0, 0.15);
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  border-radius: 50%;
+  -ms-grid-column-span: 1;
+      grid-column-end: span 1;
+  -ms-grid-row-span: 1;
+      grid-row-end: span 1;
+  position: absolute;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+}
+
+.connectFour .connect-cell.a {
+  background-color: #33b2e1;
+}
+/*# sourceMappingURL=main.css.map */

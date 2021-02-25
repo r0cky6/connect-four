@@ -1,0 +1,183 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+.container{
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+}
+.img-holder{
+    img{
+        width: 100%;
+    }
+}
+
+#img-diagonal-bg{
+    padding: 50vh 0;
+    .container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .img-holder{
+        max-width: 40vw;
+    
+    
+        position: relative;
+        img.absolute{
+            z-index: 2;
+            position: absolute ;
+            left: 0;
+            top: 0;
+            opacity: 1;
+        }
+        .img-bg{
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(-45deg,
+            transparent,
+            transparent 20px,
+            rgb(196, 87, 230) 20px,
+            rgb(196, 87, 230) 40px);
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+}
+// connect four 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+}
+body{
+    background-color: #253031;
+}
+section{
+    width: 100vw;
+}
+#game-restart{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: none;
+    place-items: center;
+    z-index: 100;
+    #restart-btn{
+        width: 150px;
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+        backdrop-filter: blur(1px);
+        border-radius: 8px;
+        cursor: pointer;
+    }
+}
+.connectFour{
+    
+    
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-content: center;
+    position: relative;
+    #game-setup{
+        position: absolute;
+        place-self: center;
+        max-width: 40vw;
+        z-index: 10;
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+        backdrop-filter: blur(10px);
+        border-radius: 4px;
+        padding: 1rem;
+        font-family: 'Roboto';
+        color: rgb(190, 190, 190);
+        text-transform: lowercase;
+        h1{
+            position: absolute;
+            transform: translateY(-100%);
+            text-transform: uppercase;
+        }
+        #initForm{
+            display: grid;
+            justify-content: center;
+            row-gap: 1em;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 1rem;
+            .controls{
+                display: grid;
+                grid-column-end: span 3;
+                grid-template-columns: 1fr;
+                button{
+                    padding: .5em;
+                }
+            }
+            input{
+                outline: none;
+                width: 100%;
+                padding: 1em;
+                height: 3em;
+            }
+            input, button{
+                border: none;
+                border-radius: 2px;
+                background: #354446b4;
+                font-family: 'Roboto';
+                color: rgb(190, 190, 190);
+                font-size: 1em;
+                font-weight: 600;
+                cursor: pointer;
+            }
+        }
+    }
+    #connect-topRow{
+        background-color: #354446;
+        border-radius: 100px;
+        height: 120px;
+        display: grid;
+        position: relative;
+        width: 100%;
+        #curPlayer{
+            text-align: center;
+            place-self: center;
+            font-size: 2em;
+            color: #eeeeee;
+            font-family: 'Roboto', serif;
+        }
+        #curTurn{
+            position: absolute;
+            background-color: brown;
+            grid-column-start: 1;
+            grid-column-end: span 1;
+            z-index: 2;
+        }
+    }
+    .connect-board{
+        background-color: #354446;
+        mask-repeat: no-repeat, repeat;
+        mask-position: 0 0px;
+        mask-image: url(../assets/img/rect1.svg), url(../assets/img/circle.svg);
+        mask-clip:border-box;
+        overflow: visible;
+        display: grid;
+        grid-template-rows: repeat(7, 1fr);
+        grid-template-columns: repeat(7, 1fr);
+        position: relative;
+    }
+    .connect-cell{
+        border: 10px solid rgba(0, 0, 0, 0.15);
+        height: 100px;
+        width: 100px;
+        margin: 10px;
+        border-radius: 50%;
+        grid-column-end: span 1;
+        grid-row-end: span 1;
+        position: absolute;
+        transition-duration: .2s;
+        &.a{
+            background-color: rgb(51, 178, 225);
+        }
+    }
+}
